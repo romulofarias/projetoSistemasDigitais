@@ -2,32 +2,30 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 entity controller is
+    port (
+        clk      : in std_logic;
+        input    : in std_logic_vector (4 downto 0);
+        reset    : in std_logic;
+        cmp      : in std_logic;
 
-	port(
-		clk	     : in	std_logic;
-		input	 : in	std_logic_vector (4 downto 0);
-		reset	 : in	std_logic;
-        cmp      : in   std_logic;
+        opcode : buffer std_logic_vector (4 downto 0);
 
-		opcode : buffer std_logic_vector (4 downto 0);
-		
-		output               : out	std_logic_vector(1 downto 0);
+        output               : out std_logic_vector(1 downto 0);
         pc_switch            : out std_logic;
-		pc_incr              : out std_logic;
-		pc_ld                : out std_logic;
-		ir_load              : out std_logic;
-		pilha_ld             : out std_logic;
+        pc_incr              : out std_logic;
+        pc_ld                : out std_logic;
+        ir_load              : out std_logic;
+        pilha_ld             : out std_logic;
         register_file_switch : out std_logic_vector (1 downto 0);
-		alu_switch           : out std_logic_vector (4 downto 0);
-		alu_ra_switch        : out std_logic_vector (2 downto 0);
-		alu_rb_switch        : out std_logic_vector (2 downto 0);
-		io_switch            : out std_logic_vector (1 downto 0);
-		reg_load             : out std_logic;
-		reg_reset            : out std_logic;
-		D_rd                 : out std_logic;
-		D_wr                 : out std_logic
-	);
-
+        alu_switch           : out std_logic_vector (4 downto 0);
+        alu_ra_switch        : out std_logic_vector (2 downto 0);
+        alu_rb_switch        : out std_logic_vector (2 downto 0);
+        io_switch            : out std_logic_vector (1 downto 0);
+        reg_load             : out std_logic;
+        reg_reset            : out std_logic;
+        D_rd                 : out std_logic;
+        D_wr                 : out std_logic
+    );
 end entity;
 
 architecture controller_arch of controller is
