@@ -24,10 +24,10 @@ begin
 	begin 
 		if (clock'event and rising_edge(clock) and load='1') then
             if (reset='1') then
-                output <= (others => '0')
+                output <= (others => '0');
             elsif (load='1') then
                 output <= input;
-            end if
+            end if;
 		end if;
 	end process;
 end reg8_arch;

@@ -13,9 +13,4 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-add_subdirectory(alu)
-add_subdirectory(ir)
-add_subdirectory(mux8_1)
-add_subdirectory(program_counter)
-add_subdirectory(reg8)
-add_subdirectory(controller)
+add_vhdl_source(controller.vhd controller)
