@@ -30,8 +30,9 @@ shared variable alu_result : signed(7 downto 0);
 shared variable tmp : signed(8 downto 0);
 
 function compare(A: signed(7 downto 0);
-                    B: signed(7 downto 0);
-                    operation: std_logic_vector(2 downto 0)) return std_logic is
+                 B: signed(7 downto 0);
+                 operation: std_logic_vector(2 downto 0)
+                ) return std_logic is
     variable comp : std_logic;
 begin
     comp := '0';
@@ -99,8 +100,10 @@ begin
 		alu_flags <= alu_flags OR compare(A, B, compare_sel);
     when "11101" => -- logic XOR
 		alu_flags <= alu_flags XOR compare(A, B, compare_sel);
-	when others =>
-		alu_result := x"00";
+    when "11110" => -- swap
+        alu_result := (A sll 4) OR (A srl 4);
+    when others =>
+        alu_result := x"00";
 	end case;
     ALU_OUT <= ALU_result;
     tmp := A + B;

@@ -13,15 +13,4 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-add_subdirectory(alu)
-add_subdirectory(ir)
-add_subdirectory(mux2_1)
-add_subdirectory(mux8_1)
-add_subdirectory(program_counter)
-add_subdirectory(program_memory)
-add_subdirectory(data_memory)
-add_subdirectory(reg8)
-add_subdirectory(reg11)
-add_subdirectory(controller)
-add_subdirectory(datapath)
-add_subdirectory(board)
+add_vhdl_source(data_memory.vhd data_memory)

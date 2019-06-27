@@ -13,7 +13,7 @@ port
 	load         : in std_logic;
 
 	-- Output ports
-        program_statement : out std_logic_vector (15 downto 0)
+    program_statement : out std_logic_vector (15 downto 0)
 );
 end IR;
 
